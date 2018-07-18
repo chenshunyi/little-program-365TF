@@ -1,0 +1,23 @@
+<template name="houseteam-list">
+<block  wx:for="{{e_houses}}" >
+	<navigator url="/page/newhouse/detail?id={{item.h_id}}&p={{item.h_type}}" open-type="navigate">
+		<view class="pl45 pt25 line-tag">
+			<view class="bor-b flex pb25">
+				<image class="list-poster houseteam" mode="aspectFill" src="{{item.h_pic}}"></image>
+				<view class="list-r ml20">
+					<view class="flex">
+						<view class="houseteam-l">
+							<view class="f28 bold base lh-38">{{item.h_name}}</view>
+							<view class="f24 gray mt10 lh-30 list-desc"><text>{{item.h_project_address}}</text></view>
+						</view>
+						<view class="houseteam-r" style="width: 200rpx;">
+							<view class="orange f30 bold list-desc"><text>{{item.h_price}}</text></view>
+							<view class="mt10 list-desc list-desc" hidden="{{item.h_privilege_cut.length == 0}}" style="line-height:40rpx;" ><text class="takeoff">{{item.h_privilege_cut}}</text></view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</navigator>
+</block>
+</template>

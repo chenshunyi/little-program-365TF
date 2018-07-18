@@ -1,0 +1,20 @@
+<template name="news-list">
+<block wx:for="{{list_data}}">
+  <navigator url="/page/news/detail?id={{item.n_id}}" class="item flex" open-type="navigate" >
+     <image class="list-poster img" mode="aspectFill" src="{{item.n_pic}}" wx:if="{{item.n_pic}}"></image>
+     <view class="{{item.n_pic ? 'list-r ml20 ' : 'width100'}} content">
+       <text class="txt">{{item.n_main_title}}</text>
+       <view class="time">{{item.datetime}}</view>
+     </view>
+   </navigator>
+</block>
+
+<view class="list-load mb20" hidden="{{is_post==false ? true : false}}"></view>
+<view class="no-more f28" hidden="{{no_more==false ? true : false}}">没有更多了 ！</view>
+
+<view class="nodata" hidden="{{nodata==false ? true : false}}">
+  <image mode="widthFix" src="https://m.house365.com/Public_new/images/tfxcx/img_404@2x.png" ></image>
+  <text>这里空空如也</text>
+</view>
+
+</template>

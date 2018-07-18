@@ -1,0 +1,82 @@
+<view class='container'>
+        <!--头部  -->
+    <view class='fbsInfoHeadView'> 
+        <!--头像所在视图  -->
+        <view class='fbsInfoView'>
+            <image class='photoImage'  mode="aspectFill" src="{{fbsInfo.avatar}}"></image>
+            <view class='fbsInfoHeadRightView'>
+                <view class='fbsNameView'>{{fbsInfo.name}}</view>
+                <view class='fbsProfessionalView'>{{fbsInfo.intro}}</view>
+                <view class='fbsTagView'>
+                    <view class='fbsTagItemView' wx:for="{{fbsInfo.taglist}}"  wx:for-index="idx" wx:for-item="tagItem" wx:key="{{tagItem.tagid}}"> {{tagItem.tagname}} </view>
+                </view>
+            </view>
+        </view>
+
+        <!--个人介绍所在视图  -->
+        <view class='fbsIntroView'>
+            <view class='introView1'>个人简介</view>
+            <view class='introView2'>{{fbsInfo.detail}}</view>
+        </view>
+    </view>
+
+    <!--房博士问答列表  -->
+    <view class='fbsAskListView'>
+        <view class='askRecordhHeadView'>
+            <view class='askRecordText'>问答记录</view>
+            <block wx:if = "{{fbsInfo.consultcount}}">
+                <view class='askRecordNumText'>{{'(' + fbsInfo.consultcount + ')'}}              </view>
+            </block>
+        </view>
+
+        <!--问答记录cell  -->
+        <view class='tableView'>
+            <block wx:for="{{fbsqaList}}" wx:for-item="list" wx:for-index="pageNo" wx:key="pageNo">
+                  <view class='listCell' bindtap='actionToOpenWDDetail' data-id="{{item.id}}"  wx:for="{{list}}" wx:for-item="item" wx:key="{{item.id}}" wx:for-index="idx">
+                  <text class='wdAskText'>{{item.question}}</text>
+                  <text class='wdAnswerText'>{{item.answer}}</text>
+
+                  <view class='otherInfoContent'>           
+                      <text class='otherTime'>{{item.replyDateStr}}</text>
+                      <block wx:if="{{item.support==1}}">
+                          <view class='otherDZ' catchtap='actionToDZ' data-id="{{item.id}}" data-enable='0' data-index='{{idx}}' data-page="{{pageNo}}">
+                          <image class='otherDZ_image' mode='aspectFit' src='/fbs/image/fbs_zan_selected.png'></image>
+                          <text class='otherDZ_Number_HasDZ'>{{item.vote}}</text>
+                          </view>
+                      </block>
+                      <block wx:else>
+                          <view class='otherDZ'catchtap='actionToDZ' data-id="{{item.id}}" data-enable='1' data-index='{{idx}}' data-page="{{pageNo}}">
+                          <image class='otherDZ_image' mode='aspectFit' src='/fbs/image/fbs_zan_nomal.png'></image>
+                          <text class='otherDZ_Number'>{{item.vote}}</text>
+                          </view>
+                      </block>
+                  </view>
+              </view>
+            </block>
+
+            <view wx:if="{{showtip==1 || showtip==2}}">
+                <view class="list-load" wx:if="{{showtip==1}}"></view>
+                <view class="no-more f24" wx:if="{{showtip==2}}">没有更多了 ！</view>
+            </view>
+
+            <view class="nodata" hidden="{{showtip!==3}}">
+                <view>
+                <image mode="widthFix" src="https://m.house365.com/Public_new/images/tfxcx/img_404@2x.png"></image>
+                </view>
+                <text>这里空空如也</text>
+            </view>
+        </view>
+
+
+    </view>
+
+    <!--底部按钮  -->
+    <block wx:if= "{{fbsInfo.isonline == 1}}">
+        <view class='bottomAskView' bindtap='askQusetion' data-enable='1'>{{'向TA提问  ('+(fbsInfo.total_fee==''|| fbsInfo.total_fee==0 ?'免费':('￥'+fbsInfo.total_fee))+')'}}   </view>
+    </block>
+    <block wx:else>
+        <button class='bottomAskView' data-enable='0'>离线</button>
+    </block>
+</view>
+
+<app-btn parameter="{{appParameter}}"></app-btn>

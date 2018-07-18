@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "",    
+    "navigationBarBackgroundColor": "#d3a252",
+    "usingComponents": {
+      "app-btn": "/component/toAppBtn"
+    }
+
+}

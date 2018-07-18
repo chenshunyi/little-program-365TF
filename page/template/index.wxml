@@ -1,0 +1,46 @@
+<template name="index-list">
+
+  <block wx:for="{{list_arr}}" >
+     <block wx:if="{{item.type=='newhouse'}}" >
+      <navigator url="/page/newhouse/detail?id={{item.data.h_id}}&p={{item.data.h_channel}}" open-type="navigate">
+        <view  class="bor-b ml25 mr25 pt25 pb25 flex">
+            <image class="list-poster" mode="aspectFill" src="{{item.data.h_pic}}"></image>
+            <view class="list-r ml20">
+              <view class="f28 bold base">{{item.data.h_name}}</view>
+              <view class="flex j-center mt20">
+                <view>
+                  <view class="f22 gray">{{item.data.h_channel_str}}</view>
+                  <view class="f22 gray mt20">{{item.data.h_dist}}</view>
+                </view>
+                <view class="orange f30 bold">{{item.data.h_price}}</view>
+              </view>
+              <view class="f24 orange mt20 list-desc">{{item.data.h_hotWords}}</view>
+            </view>
+        </view>
+        </navigator>
+    </block>
+     <block wx:if="{{item.type=='secondhouse'}}" >
+      <navigator url="/page/secondhouse/detail?id={{item.data.id}}" open-type="navigate">
+        <view class="bor-b ml25 mr25 pt25 pb25 flex">
+            <image class="list-poster" mode="aspectFill" src="{{item.data.pic?item.data.pic : 'https://m.house365.com/Public/images/nopic.png'}}"></image>
+            <view class="list-r ml20">
+              <view class="f28 bold base">{{item.data.title}}</view>
+              <view class="flex j-center mt15">
+                <view>
+                  <view class="f22 gray">{{item.data.room}}室{{item.data.hall}}厅 {{item.data.buildarea}}㎡</view>
+                  <view class="f22 gray mt15">{{item.data.district}}</view>
+                </view>
+                <view>
+                  <view class="orange f30 bold">{{item.data.price}}万</view>
+                  <view class="gray f22 mt15">{{item.data.averprice}}元/m²</view>
+                </view>
+              </view>
+             <view class="f22 blue mt10 tag" >
+                {{item.data.h_chara}}
+              </view>
+            </view>
+        </view>
+        </navigator>
+    </block>
+  </block>
+</template>

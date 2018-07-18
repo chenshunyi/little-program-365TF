@@ -1,0 +1,32 @@
+<view class="f28 p20" style="line-height: 56rpx;">
+<view style="font-weight: bold;">
+	报名渠道
+</view>
+<view>
+	每期看房活动将通过365淘房看房频道（http://kanfang.{{city}}.house365.com）及茶坊论坛置顶帖进行线上报名，欢迎广大网友积极参与。您还可以拨打{{tel}}电话报名
+</view>
+<view style="font-weight: bold;">
+	选择线路
+</view>
+<view>
+	在已成团线路中选出您感兴趣的线路，并留下您的姓名及联系方式，我们会第一时间通知您。如果已成团线路中没有您感兴趣的项目，您可以通过求组团的方式或者在楼盘详情页中找到您感兴趣的项目参与该项目的团购报名，等待线路成团后，我们会通过电话方式进行通知。
+</view>
+<view style="font-weight: bold;">
+	报名确认
+</view>
+<view>
+	在您提交信息成功报名之后，将会收到看房报名确认短信。同时，在报名成功后1-3天内，由专门工作人员进行电话联系，通知确认看房集合的时间、地点及参与人数希望您准时参加。
+</view>
+<view style="font-weight: bold;">
+	看房流程
+</view>
+<view>
+	在规定时间内到达指定地点上车→按照 365看房团安排线路参观项目→返回集合地点
+</view>
+<view style="font-weight: bold;">
+	疑问咨询
+</view>
+<view>
+	如有疑问，请致电{{tel}}进行咨询。本次活动最终解释权归365淘房所有
+</view>
+</view>

@@ -1,0 +1,23 @@
+<template name="newhouse-list">
+
+
+<block  wx:for="{{houseitems}}" >
+<navigator url="/page/newhouse/detail?id={{item.h_id}}&p={{item.h_channel}}" open-type="{{item.opentype}}" >
+<view  class="bor-b ml25 mr25 pt25 pb25 flex">
+    <image class="list-poster" mode="aspectFill" src="{{item.h_pic}}"></image>
+    <view class="list-r ml20">
+      <view class="f28 bold base">{{item.h_name}}</view>
+      <view class="flex j-center mt20">
+        <view>
+          <view class="f22 gray">{{item.h_channel_str}}</view>
+          <view class="f22 gray mt20">{{item.h_dist}}</view>
+        </view>
+        <view class="orange f30 bold">{{item.h_price}}</view>
+      </view>
+      <view class="f24 orange mt20 list-desc">{{item.h_hotWords}}</view>
+    </view>
+</view>
+</navigator>
+</block>
+
+</template>

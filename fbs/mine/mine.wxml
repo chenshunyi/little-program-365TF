@@ -1,0 +1,26 @@
+<!-- 登录用户  -->
+<view class='loginUser' style='line-height:{{loginBarHeight}}rpx' hidden="{{showtip==4}}">
+  <view class='text icon'>{{user_name}}</view>
+</view>
+
+<!-- 提问列表  -->
+<scroll-view scroll-y="true" style="height:{{scrollHeight}}px" lower-threshold="50" bindscrolltolower="loadMore">
+  <import src="../../page/template/myconsult.wxml" />
+  <template is="myconsult-list" data="{{consultItems}}" />
+  <view wx:if="{{showtip==1 || showtip==2}}">
+    <view class="list-load" wx:if="{{showtip==1}}"></view>
+    <view class="no-more f24" wx:if="{{showtip==2}}">没有更多了 ！</view>
+  </view>
+  <!--无数据  -->
+  <view class="nodata" hidden="{{showtip!==3}}">
+    <view>
+      <image mode="widthFix" src="https://m.house365.com/Public_new/images/tfxcx/img_404@2x.png"></image>
+    </view>
+    <text>您还没有提问</text>
+  </view>
+  <!-- 需登录  -->
+  <view class="login" hidden="{{showtip!==4}}" style='padding-top:200rpx'>
+    <button class='loginBtn' bindtap='toLogin'>登录</button>
+    <text class="f30" style='font-size:28rpx;color:#8a8a8a;display:block;text-align: center;margin-top:50rpx'>目前尚未登录，请登录后查看提问记录。</text>
+  </view>
+</scroll-view>

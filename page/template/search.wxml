@@ -1,0 +1,8 @@
+<template name="newhouse-search">
+    <navigator url="/page/newhouse/list?keyword={{item.name}}" open-type="redirect"><text class="itemInf"> {{item.name}}</text></navigator>
+</template>
+
+
+<template name="secondhouse-search">
+    <navigator url="/page/secondhouse/list?keyword={{item.blockname}}" open-type="redirect"><text class="itemInf"> {{item.blockname}}</text></navigator>
+</template>

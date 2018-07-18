@@ -1,0 +1,8 @@
+
+.content {
+  display: block;
+  font-size: 30rpx;
+  color: #232323;
+  padding: 40rpx 24rpx;
+  line-height: 50rpx;
+}

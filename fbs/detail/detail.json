@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "问答详情",
+  "navigationBarBackgroundColor": "#d3a252",
+  "usingComponents": {
+    "app-btn": "/component/toAppBtn"
+  }
+}

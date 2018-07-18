@@ -1,0 +1,70 @@
+<map class="map {{ !isSecond ? '' : 'mapDown'}}" style="height: {{scrollHeight}}rpx;" longitude="{{listdata.e_map_avg_y}}" latitude="{{listdata.e_map_avg_x}}" scale="13" bindtap="show_big_map" markers="{{markers}}" include-points="{{markers}}" bindmarkertap="markertap" show-location></map>
+<view class="list__item" style="border: none;">
+	<view class="list__title">
+		<text>{{listdata.e_title}}</text>
+		<view class="list__title-r">{{listdata.e_groupqq}}</view>
+	</view>
+	<view class="item__time f28">{{listdata.e_startoff_ftime}}</view>
+	<view class="item__addr f28">{{listdata.e_startoff_address}}</view>
+	<view class="item__tags clearfix">
+		<view class="item__tag">{{listdata.e_h_chara}}</view>
+	</view>
+	<view class="item__gift clearfix">
+		<view class="item__gift-l fl">随车赠送</view>
+		<view class="item__gift-r fl">
+			<view class="item__tag2 loushiMap" hidden="{{!tagArr[0]}}">楼市地图</view>
+			<view class="item__tag2 water" hidden="{{!tagArr[1]}}">矿泉水</view>
+			<view class="item__tag2 present" hidden="{{!tagArr[2]}}">新年礼包</view>
+			<view class="item__tag2 hot" hidden="{{!tagArr[3]}}">热水</view>
+			<view class="item__tag2 secert" hidden="{{!tagArr[4]}}">神秘礼物</view>
+		</view>
+	</view>
+	<view class="item__other clearfix">
+		<view class="item__other-l fl">其他信息</view>
+		<view class="item__other-r fl">
+			<view class="item__tag2 bus" hidden="{{!tagArr[5]}}">豪华大巴</view>
+			<view class="item__tag2 speak" hidden="{{!tagArr[6]}}">全程讲解</view>
+			<view class="item__tag2 speakOne" hidden="{{!tagArr[7]}}">1对1讲解</view>
+			<view class="item__tag2 takoff" hidden="{{!tagArr[8]}}">独家优惠</view>
+		</view>
+	</view>
+</view>
+<view class="gray-div"></view>
+<view class="list__title line">
+	<text>看房行程</text>
+</view>
+<view class="list__item line">
+	<import src="../template/houseteam.wxml" />
+	<template is="houseteam-list" data="{{...listdata}}" />
+</view>
+<view class="gray-div"></view>
+<view class="list__title line">
+	<text>团长召集令</text>
+</view>
+<view class="list__item line">
+	<view class="context">{{listdata.e_call_up}}</view>
+	<navigator url="/page/houseteam/activity?e_tel={{listdata.e_tel_miniapp}}&&e_city={{listdata.e_city}}" open-type="navigate">
+		<view class="activity">活动流程
+			<view class="or-btn"></view>
+		</view>
+	</navigator>
+	<navigator url="/page/houseteam/declare" open-type="navigate">
+		<view class="declare">免责声明
+			<view class="or-btn"></view>
+		</view>
+	</navigator>
+</view>
+
+<!-- 底部固定电话 -->
+<view class="tel-fixed" style="">
+	<view class="flex tel-content j-center">
+		<view class="tel t-c" data-type="" style="background-color:rgba(0, 0, 0, .8);" bindtap="dial" data-tel="{{listdata.e_tel_miniapp}}">
+			<icon class="icon-tel mt15"></icon>
+			<view class="f22 white">电话咨询</view>
+		</view>
+		<navigator class="tel-detail" style="background-color:#ff7500;" url="/page/houseteam/apply?e_id={{id}}" open-type="navigate">
+			<view class="f30 white t-c" style="line-height: 46rpx;">立刻报名</view>
+			<view class="f26 white t-c">截止：{{listdata.e_fendtime}}</view>
+		</navigator>
+	</view>
+</view>

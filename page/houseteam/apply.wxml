@@ -1,0 +1,29 @@
+<view class="houseteam t-c white">
+  <view class="team-name">{{detailinfo.e_title}}</view>
+  <view class="f28">报名截止：{{detailinfo.e_fendtime}}</view>
+</view>
+<view class="p30">
+  <form bindsubmit="formSubmit">
+    <view class="layer flex">
+      <view class="f30 base v-m">姓<text class="pl10"></text>名：</view>
+      <input type="text" name="name" class="inp" placeholder="请填写姓名" placeholder-class="inp-holder" />
+    </view>
+    <view class="layer flex">
+      <view class="f30 base v-m">报名人数：</view>
+      <input type="digit" name="num" class="inp" placeholder="请填写报名人数" placeholder-class="inp-holder" />
+    </view>
+    <view class="layer flex">
+      <view class="f30 base v-m">手 机 号：</view>
+      <input type="digit" name="mobile" maxlength="11" class="inp" bindblur="phoneBlur" placeholder="请填写11位手机号码" placeholder-class="inp-holder" />
+    </view>
+    <view class="layer lay-pos flex">
+      <view class="f30 base v-m">验 证 码：</view>
+      <input type="text" name="e_code" class="inp" placeholder="请输入验证码" placeholder-class="inp-holder" />
+      <view class="code {{ codeFlag ? 'on' : '' }}">
+        <button type="default" disabled="{{ codeFlag ? 'true' : '' }}" bindtap="btnCode">{{codeText}}</button>
+      </view>
+    </view>
+    <view class="f28 gray mt30">*如收不到验证码,也可直接前往发车点参团</view>
+    <button class="btn-submit" formType="submit">立即报名</button>
+  </form>
+</view>

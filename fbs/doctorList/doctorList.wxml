@@ -1,0 +1,27 @@
+<view class='fbsCell' bindtap="actionToOpenFBSDetail" data-obj="{{item}}" wx:for="{{dataArray}}" wx:for-item="item" wx:key="items" wx:for-index="idx">
+  <image class='fbs_headImage' mode="aspectFill" src="{{item.avatar}}"></image>
+
+  <view class='rightView'>
+    <view class='firstView'>
+      <text class='fbs_name'>{{item.name}}</text>
+      <text class='fbs_intro'>{{item.intro}}</text>
+    </view>
+
+    <view class='fbs_tagView'>
+      <block wx:for="{{item.taglist}}" wx:for-item="tag" wx:key="tags" wx:for-index="idx">
+        <text class='fbs_TagText'>{{tag.tagname}}</text>
+      </block>
+
+    </view>
+
+    <view class='lastView'>
+      <text class='fbs_fee'>{{item.total_fee==''?'免费':'¥ '+item.total_fee}}</text>
+      <text class='fbs_answerNum'>{{item.answerNum+'个回答'}} </text>
+    </view>
+    <view class='fbs_answerBtn' catchtap="actionToOpenQuestion" data-obj="{{item}}">提问</view>
+  </view>
+</view>
+
+<view class='fbs_bottom' hidden="{{currentNo==totalPage?false:true}}">
+  <text class='fbs_bottomText'>没有更多啦...</text>
+</view>

@@ -1,0 +1,37 @@
+<view class="headSearch">
+  <navigator class="headSearch__inner f26" url="/page/search/index?type=newhouse"  open-type="redirect">
+    <icon class="icon-search" type="search" size="17" color="#b2b2b2"></icon>
+    <block  wx:if="{{searchconfig.k}}">{{searchconfig.k}}</block>
+    <block wx:else>好房就要淘！</block>
+  </navigator>
+</view>
+<view class="winPop" hidden="{{isDown}}" bindtap="closeWin"></view>
+<view class="flex flex--sa headSelect">
+  <view  wx:for="{{selectNav}}" wx:for-item="items" wx:for-index="idx" data-idx="{{idx}}" bindtap="swichNav" class="headSelect__item base {{searchconfig[items.val]>0 ? 'on' : ''}}">{{items.key}}</view>
+
+  
+  <scroll-view wx:for="{{downlist}}" wx:for-item="subNav" wx:for-index="downlist_idx" scroll-y="true" style="height:{{scrollHeight - 150}}px" class="headSelect__downlist" hidden="{{selectNav__down[downlist_idx]}}">
+    <view  wx:for="{{subNav}}" wx:for-index="idx" data-idx="{{idx}}" data-tag_type="{{item.tag_type}}" data-tag_id="{{item.tag_id}}" bindtap="swichNav2" class="headSelect__downlistItem f28 base {{searchconfig[item.tag_type]==item.tag_id ? 'on' : ''}} {{ subNav.length-1 > idx ?'bottomLine':''}}">
+      {{item.tag_name}}
+    </view>
+  </scroll-view>
+
+
+</view>
+<scroll-view scroll-y="{{overflowHide}}" style="height:{{scrollHeight}}px" lower-threshold="50" bindscrolltolower="getMore">
+  <import src="../template/newhouse.wxml" />
+  <template is="newhouse-list" data="{{houseitems}}" />
+  <view wx:if="{{showtip==1 || showtip==2}}">
+    <view class="list-load" wx:if="{{showtip==1}}"></view>
+    <view class="no-more f24" wx:if="{{showtip==2}}">没有更多了 ！</view>
+  </view>
+
+  <view class="nodata" hidden="{{showtip!==3}}">
+    <view>
+      <image mode="widthFix" src="https://m.house365.com/Public_new/images/tfxcx/img_404@2x.png" ></image>
+    </view>
+    <text>这里空空如也</text>
+  </view>
+ 
+
+</scroll-view>

@@ -1,0 +1,13 @@
+.searchprice_con{border-bottom: 0.5rpx solid #d9d9d9;margin: 0 3%;width: 94%;float: left;}
+.searchprices_name{width: 20%;float: left;display: inline;font-size: 30rpx;line-height: 80rpx;color: #303030;}
+.searchprices_select{width:70%;text-align: right;float:left;display: inline;font-size: 30rpx;line-height: 80rpx;color: #cccccc}
+.searchprices_img{float:right;height: 28rpx;width: 16rpx;padding-top: 26rpx;}
+.searchprices_in{width: 80%;font-size: 30rpx;line-height: 80rpx;}
+.searchprices_unit{width: 10%;font-size: 30rpx;text-align: right;float: left;line-height: 80rpx;color: #303030;}
+.searchpriceBtn{width: 94%;float: left;margin: 0 3%;background: #ff7500;font-size: 30rpx;line-height: 80rpx;border-radius: 6px;-webkit-border-radius:6px;color: #FFF;text-align: center;}
+
+.searchprices_size{line-height: 80rpx;font-size: 30rpx;color:#303030;height: 80rpx;}
+.placeholder-class { color:#ccc; }
+
+.marginTop{margin-top: 80rpx;}
+searchpriceheiht{height:80px;}

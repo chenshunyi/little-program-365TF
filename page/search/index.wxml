@@ -1,0 +1,21 @@
+<form bindsubmit="formSubmit">
+  <import src="../template/search.wxml" />
+  <view class="searchbg">
+    <view class="searchprice_list resetWidth">
+      <icon class="iconsearch" size="16" type="search"></icon>
+      <input class="blur-input" type="text" focus="true" name="searchinput" bindinput="keywrodSearch" placeholder="好房就要淘" placeholder-class="showshowcolor" />
+    </view>
+    <text class="searchclear" bindtap="clearSearch">取消</text>
+  </view>
+  <scroll-view class="seachpirce-items" scroll-y="true">
+    <block wx:for="{{listitems}}">
+      <block wx:if="{{pagetype == 'newhouse'}}">
+        <template is="newhouse-search" data="{{item}}" />
+      </block>
+      <block wx:else>
+        <template is="secondhouse-search" data="{{item}}" />
+      </block>
+    </block>
+  </scroll-view>
+  <button class="clearrecord" formType="submit">搜索</button>
+</form>

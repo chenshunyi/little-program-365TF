@@ -1,0 +1,21 @@
+<template name="secondhouse-list">
+<navigator url="/page/secondhouse/detail?id={{id}}" open-type="redirect">
+<view class="bor-b ml25 mr25 pt25 pb25 flex">
+    <image class="list-poster" mode="aspectFill" src="{{pic1 ? pic1 : 'https://m.house365.com/Public/images/nopic.png'}}"></image>
+    <view class="list-r ml20">
+      <view class="f28 bold base">{{address}}</view>
+      <view class="flex j-center mt15">
+        <view>
+          <view class="f22 gray">{{room}}室{{hall}}厅 {{buildarea}}m²</view>
+        </view>
+        <view>
+          <view class="orange f30 bold">{{price}}万</view>
+        </view>
+      </view>
+      <view class="f22 blue mt10 tag" >
+        {{feature}}
+      </view>
+    </view>
+</view>
+</navigator>
+</template>

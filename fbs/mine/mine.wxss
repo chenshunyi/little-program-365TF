@@ -1,0 +1,79 @@
+.loginUser {
+  padding-left: 25rpx;
+  background: #d3a252;
+}
+
+.loginUser .text {
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.loginUser .icon {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADFklEQVRoQ+2Z4W0UQQyFnysAKkhSAXQAqQBSAaECSAUkFQAVQCogVEBSAaQC6ACowOhDHjRa3e3OjC85nXT+FeV2bv3sZ/t5zrTjZjvuv/YAtp3BfQb2GUhGYOMUcvdDSc8lvQjfnkj6LumnpGtJX8zsd9Lv/8c3BiAcfyvptHLuTzj/tPofzr83s4tNgNgIAHd/JumzpIeSbnFQ0lUd6QAIuDeSHkQ2TrLZSAMI579GNM/MDOfXmrsD8lPQDGodZ0CkAERUv0XkieZVKy3cHRAvI1Mnreemz2UBFCcWI7/KQXcnA48jCxR4tw0DcHe6C9G/NTP+7raKftdmdtz9BdK4FnL3c0l0nVdmRiaGzN2hHW33yMxotV2WyQAppz0+yhShu9OZPo4GIgMA+tgofUqYKxpdmBlZ7bIMAJd0Y2bMgGHbJgAodGBmR8PeS9omgFTxVRRiMr+T1DVHyvkMhUrxDXG3AvBDEgJwqBlkACAJaHvUAi2wW2FWHejSzGoR2MzKYQC8oZoF3YMoBiEaikAMzQB8yALg5RQzcoBhhqRYzMTE+RQFUwAiC/AXTYNEhlLnZna5igOhRF/zTHw+TJ10EdcOhiqlK5EJrGxftTRgXtQz44OZ0YFSls5A1U3QM9AIWi0ZtENDdWuf6RenAbg7mh5KQCWMNZJs4Bz1AL1K5FGtAC0GEOqGZ4ZsGEAUIgOoOAfvWSNnl5qoAxZ+QB+E1+zIZyMIhgC4Ow6gIKHLTRRu90Li7tQAQGgAQ+tlN4Bq+BCwdBeZNIBuEF0AJgt8apGZdDEyCfXYL7pANAOYLPBDO/Acx6M2ylCklpoW/R4AjH0Klpu1cus2UndrzwQIuhc10aROmwBUvKdFHrbIhVFkUdh0N1rwokhsBVCiv3HqrAJaXbcs1tkigOA+mv3Oo19N9bJrLKrcFgDl+iTdMltpNamFWandAqBcnzQVVauTS89V90Wz720B8Csm7tDKt+Tous+rYp7dF1oA/Ptx4q5a5wyAsmeczumrRQCjEbyvc3sA9xXpde/ZZ2CfgWQEdp5CfwGqTFhAN6O9ggAAAABJRU5ErkJggg==') no-repeat left center;
+  background-size: 40rpx;
+  padding-left: 52rpx;
+}
+
+.unpaid {
+  background: #fff;
+  border-width: 1rpx;
+  border-style: solid;
+  border-color: #d3a252;
+  border-radius: 4rpx;
+  padding: 0rpx 10rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #d3a252;
+}
+
+.solved {
+  background: #fff;
+  border-width: 1rpx;
+  border-style: solid;
+  border-color: #508df1;
+  border-radius: 4rpx;
+  padding: 0rpx 10rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #508df1;
+}
+
+.unsolved {
+  background: #fff;
+  border-width: 1rpx;
+  border-style: solid;
+  border-color: #ff392f;
+  border-radius: 4rpx;
+  text-align: ccenter;
+  padding: 0rpx 10rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #ff392f;
+}
+
+.loginBtn {
+  height: 88rpx;
+  width: 346rpx;
+  background: #fff;
+  text-align: center;
+  border-width: 1rpx;
+  border-style: solid;
+  border-color: #d3a252;
+  border-radius: 10rpx;
+  padding: 0rpx 10rpx;
+  margin-bottom: 25rpx;
+  font-size: 36rpx;
+  color: #d3a252;
+}
+
+.questionDesc {
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

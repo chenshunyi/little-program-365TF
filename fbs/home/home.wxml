@@ -1,0 +1,106 @@
+<view class='page'>
+  <view class='header'>
+    <image class='headerLeftImage' mode='aspectFit' src='/fbs/image/fbs_aev.png'></image>
+    <text class='headerText'>提供专业、客观、真诚的买房卖房咨询服务</text>
+    <view class='headerMy' bindtap="actionToOpenMyQuestion">
+    
+      <block wx:if="{{fbsHomeData.hasUnread}}">
+        <image class='headerMyImage' mode='aspectFit' src='/fbs/image/fbs_wd_red.png'></image>
+      </block>
+      <block wx:else>
+        <image class='headerMyImage' mode='aspectFit' src='/fbs/image/fbs_wd.png'></image>
+      </block>
+
+      <text class='headerMyText'>我的提问</text>
+      <view class='sline'></view>
+    </view>
+  </view>
+
+  <!-- 房博士咨询 -->
+  <view class='section'>
+    <view class='fbsHeader'>
+      <text class='fbsHeader_leftText'>房博士咨询</text>
+      <view class='fbsAll' bindtap="actionToOpenFBSList">
+        <text class='fbsAll_text'>全部</text>
+        <image class='fbsAll_image' mode='aspectFit' src='/fbs/image/fbs_jt.png'></image>
+      </view>
+    </view>
+
+    <view class='fbsTWContent'>
+      <view class='fbsTWItem' wx:for="{{fbsHomeData.fbsList}}" wx:for-item="item" wx:key="items" wx:for-index="idx">
+        <image class='fbsZX_headImage' bindtap="actionToOpenFBSDetail" data-obj="{{item}}" mode="aspectFill" src="{{item.avatar}}"></image>
+        <text class='fbsZX_name'>{{item.name}}</text>
+        <text class='fbsZX_intro'>{{item.intro}}</text>
+        <text class='fbsZX_total_fee'>{{item.total_fee==''?'免费':(item.total_fee=='0'?'免费':'¥ '+item.total_fee)}}</text>
+        <view class='fbsZX_question' bindtap="actionToOpenQuestion" data-obj="{{item}}">提问</view>
+
+        <!-- <text class='fbsZX_name'>王成</text>
+        <text class='fbsZX_intro'>资深房产专家</text>
+        <text class='fbsZX_total_fee'>¥20</text>
+        <text class='fbsZX_question' bindtap="actionToOpenQuestion">提问</text>  -->
+      </view>
+    </view>
+  </view>
+
+  <!-- 热点 -->
+  <view class='wdHeader'>
+    <view class='wdHeader_Line'></view>
+    <text class='wdHeader_Text'>问答动态</text>
+  </view>
+
+  <view class='wdContent'>
+    <view bindtap='actionToOpenWDDetail' data-id="{{item.id}}" wx:for="{{fbsHomeData.qaList}}" wx:for-item="item" wx:key="id" wx:for-index="idx">
+      <text class='wdAskText'>{{item.question}}</text>
+      <text class='wdAnswerText'>{{item.answer}}</text>
+      <block wx:if="{{item.pic}}">
+        <view class='wdImageContent'>
+          <view wx:for="{{convert.convertToArray(item.pic)}}" wx:for-item="imageItem" wx:for-index="idx">
+            <image class='wdImage' mode="aspectFill" src="{{imageItem}}"></image>
+          </view>
+        </view>
+      </block>
+
+      <view class='otherInfoContent'>
+        <view class='other_left'>
+          <image class='otherImage' mode="aspectFill" src="{{item.fbsInfo.avatar}}"></image>
+          <text class='otherName'>{{item.fbsInfo.name}}</text>
+          <view class='otherLine'></view>
+          <text class='otherTime'>{{item.replydate_c}}</text>
+        </view>
+
+        <block wx:if="{{item.support==1}}">
+          <view class='otherDZ' catchtap='actionToDZ' data-id="{{item.id}}" data-enable='0' data-index='{{idx}}'>
+            <image class='otherDZ_image' mode='aspectFit' src='/fbs/image/fbs_zan_selected.png'></image>
+            <text class='otherDZ_Number_HasDZ'>{{item.vote}}</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view class='otherDZ' catchtap='actionToDZ' data-id="{{item.id}}" data-enable='1' data-index='{{idx}}'>
+            <image class='otherDZ_image' mode='aspectFit' src='/fbs/image/fbs_zan_nomal.png'></image>
+            <text class='otherDZ_Number'>{{item.vote}}</text>
+          </view>
+        </block>
+
+
+      </view>
+
+    </view>
+  </view>
+
+
+
+</view>
+
+
+
+<wxs module="convert">
+  var convertToArray = function(str) {
+    var arr = [];
+    if (typeof(str) === 'string' && str !== '') {
+      arr = str.split(',');
+    }
+    return arr;
+  }
+
+  module.exports.convertToArray = convertToArray;
+</wxs>

@@ -1,0 +1,62 @@
+<view style="position: relative;">
+	<view class="headSearch"  hidden="{{listdata.length == 0 ? true : false}}" bindtap="pushDown">
+		<view class="headSearch-l">
+      <icon class='icon-car'></icon>    
+			<text>{{title}}</text>
+      <icon class='selectDown'></icon>
+		</view>
+	</view>
+	<scroll-view scroll-y="true" style="height:{{scrollHeight - 150}}px;" hidden="{{!isDown}}" class="headSelect__downlist">
+		<view class="headSelect__downlistItem f28 base bottomLine {{index == -1 ?'orange':''}}"  data-idx="all" bindtap="getNum">
+			全部路线
+		</view>
+		<view class="headSelect__downlistItem f28 base {{ listdata.period_lines.length-1 > idx ?'bottomLine':''}} {{index == idx ?'orange':''}}" wx:for="{{listdata.period_lines}}" wx:for-index="idx" data-idx="{{idx}}" bindtap="getNum">
+			{{item.e_title}}
+		</view>
+	</scroll-view>
+</view>
+<view class="winPop" hidden="{{!isDown}}" bindtap="closeWin"></view>
+<scroll-view scroll-y="true" style="height: {{scrollHeight}}px;background:#eeeeee;">
+	<view class="gray-div"></view>
+	<view class="list__contain">
+		<block wx:for="{{listdata.period_lines}}" wx:for-index="idx">
+			<view hidden="{{filter && index !== idx}}">
+				<navigator url="/page/houseteam/detail?id={{item.e_id}}" open-type="navigate">
+					<view class="list__title">
+						<text>{{item.e_title}}</text>
+					</view>
+					<view class="list__item">
+						<view class="item__time f28">{{item.e_startoff_ftime}}</view>
+						<view class="item__addr f28"> <icon class='addricon'></icon> {{item.e_startoff_address}}</view>
+						<view class="item__tags clearfix">
+							<view class="item__tag">{{item.e_h_chara}}</view>
+						</view>
+					</view>
+					<view class="map" style="{{item.e_mapImageUrl2 == null ? 'background-image: url(../../image/moren.png)':'background-image: url('+item.e_mapImageUrl2+')'}}"></view>
+					<view class="list__item" style="overflow: visible;">
+						<block wx:for="{{item.e_houses}}" wx:for-item="item2">
+							<view class="map__list clearfix">
+								<view class="map__name fl f28 list-desc"><text>{{item2.h_name}}</text></view>
+								<view class="map__tag fl f24 list-desc" hidden="{{!item2.h_privilege}}"><text>{{item2.h_privilege_cut}}</text></view>
+								<view class="map__price f28 list-desc"><text>{{item2.h_price}}</text></view>
+							</view>
+						</block>
+					</view>
+				</navigator>
+				<view class="flex v-m" style="background: #fff;">
+					<view class="tel-btn" bindtap="dial" data-tel="{{item.e_tel_miniapp}}">电话咨询</view>
+					<navigator url="/page/houseteam/apply?e_id={{item.e_id}}" open-type="navigate">
+						<view class="enroll-btn">我要报名</view>
+					</navigator>
+				</view>
+				<view class="gray-div" style="height: 82rpx;"></view>
+			</view>
+		</block>
+	</view>
+	<view class="nodata" hidden="{{!isNull}}">
+		<view>
+			<image mode="widthFix" src="https://m.house365.com/Public_new/images/tfxcx/img_404@2x.png"></image>
+		</view>
+		<text>当前城市暂无看房团</text>
+	</view>
+</scroll-view>

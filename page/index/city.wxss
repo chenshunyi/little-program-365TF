@@ -1,0 +1,109 @@
+.hot-city-mt {
+  background: #efeff4;
+  color: #4d4d4d;
+  padding: 30rpx 30rpx 10rpx;
+}
+
+.city-list {
+  color: #4d4d4d;
+  font-size: 28rpx;
+  line-height: 85rpx;
+  height: 85rpx;
+  width: 704rpx;
+  margin: 0 auto;
+}
+
+.city-list.title {
+  font-size: 24rpx;
+  color: #888;
+}
+
+.city-div {
+  background: #efeff4;
+  position: relative;
+  padding: 20rpx 20rpx 0;
+}
+
+.icon-search {
+  position: absolute;
+  top: 34rpx;
+  left: 260rpx;
+  z-index: 99;
+}
+
+.city-inp {
+  background: #fff;
+  width: 630rpx;
+  height: 60rpx;
+  box-sizing: border-box;
+  margin: 0 0 0 40rpx;
+  border-radius: 10rpx;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  padding-left: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #999;
+}
+
+.ipt__warn {
+  height: 54rpx;
+  background: #efeff4 202rpx center no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAV1BMVEUAAACZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZkABlXAAAAAHXRSTlMA/r9/HvP2tyQapp95WpoW6OHJw66F0JRxRIhjR3WaXqcAAADNSURBVCjPdZDpcsQgDIOlmCtA7nO3ff/n7LTAJLOk/oPwJyPGyOWkGcmxEYd7uZWcD5FjIdcb6oyWIckhavNV+pG2vVyDpWQ/fRKvVzoD/2acabK3KcKa3xyv208w6BVQFHwCCB0i2xoMFNgZNcDcYOqfwDHCyBMQwmz/gCk8gX6E3a9bf4VbRCpU1TJC8V0DoQO8UdWA9gCUXkpGKL/QKq19zWv/Tqdnl8TJ5faaWngW3WnzzkhtRne3tEDuYdvCTvpsKei0k9aTjaX9A5YvBsd/o7g9AAAAAElFTkSuQmCC);
+  -webkit-background-size: 24rpx;
+  background-size: 24rpx;
+  line-height: 54rpx;
+  color: #999;
+  text-indent: 50rpx;
+  text-align: center;
+}
+
+.psection {
+  color: #000;
+}
+
+.city-position {
+  position: relative;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-indent: 22rpx;
+}
+
+.hot-city-mc {
+  padding: 10rpx;
+  background: #efeff4;
+}
+
+.hot-city {
+  border: 1px solid #d6d6d6;
+  width: 157rpx;
+  height: 52rpx;
+  background: #fff;
+  color: #4d4d4d;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  display: inline-block;
+  text-align: center;
+  margin: 10rpx;
+}
+.hot-city.hot-city2{
+  	width: auto;
+  	background:#efeff4;
+		border: none;
+		color:#999;
+		font-size:24rpx;
+}
+.city-choose {
+  position: fixed;
+  z-index: 10;
+  width: 100rpx;
+  text-align: center;
+  bottom: 50rpx;
+  right: 0;
+  font-weight: bold;
+  line-height: 40rpx;
+}
+
+.city-choose .on {
+  font-size: 32rpx;
+  font-weight: bold;
+}

@@ -1,0 +1,39 @@
+page {
+  background-color: #efeff4;
+}
+
+/* 表单内容 */
+
+.loginFrom {
+  margin-top: 30rpx;
+  background-color: #fff;
+}
+
+/* 输入框文本  */
+
+.inputText {
+  height: 90rpx;
+  margin-left: 25rpx;
+  color: #ccc;
+  font-size: 35rpx;
+}
+
+/* 分割线  */
+
+.line {
+  width: 100%;
+  height: 1rpx;
+  margin-left: 25rpx;
+  background-color: #eee;
+}
+
+/* 提交按钮  */
+
+.loginSubmit {
+  margin: 40rpx 50rpx;
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #d3a252;
+  border-radius: 10rpx;
+}

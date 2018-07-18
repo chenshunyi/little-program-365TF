@@ -1,0 +1,30 @@
+<!-- 需登录  -->
+<button class='loginBtn' bindtap='navBack' hidden='true'>模拟登录成功</button>
+
+<!-- 登录表单  -->
+<form bindsubmit="formSubmit">
+  <view class="loginFrom">
+    <!-- 手机号 -->
+    <view style='display:flex;align-items:center;flex-direction:row;justify-content:space-between'>
+      <input id='mobile' name='mobile' class="weui-input inputText" style='font-size:34rpx;color:#242424' type="number" maxlength="11" placeholder="手机号" bindinput="onPhoneBlur" bindblur="onPhoneBlur" bindconfirm="onPhoneBlur" />
+      <button size='mini' wx:if="{{!disableSmsCode}}" hidden='{{smsCodeHidden}}' style='font-size:32rpx;background-color:#EBBF77;color:#fff' bindtap='sendSmsCode'>{{smsCodeText}}</button>
+      <button size='mini' wx:else style='font-size:32rpx;background-color:#8A8A8A;color:#fff'>{{smsCodeText}}</button>
+    </view>
+    <!-- 分割线  -->
+    <view class='line'></view>
+    <!-- 验证码 -->
+    <view class="weui-cell weui-cell_input">
+      <input id='password' name='password' class="weui-input inputText" style='font-size:34rpx;color:#242424' password maxlength="6" type="text" placeholder="验证码" />
+    </view>
+  </view>
+  <!-- 温馨提示  
+  <view style='font-size:25rpx;color:#8A8A8A;margin:25rpx'>温馨提示：手机号登录能保证您的数据在365淘房任何终端均可以查看。</view>
+  -->
+  <!-- 登录按钮  -->
+  <button class='loginSubmit' hover-class='none' loading='{{loginBtnLoading}}' formType="submit">登录</button>
+</form>
+
+<view class='flex' style='background:#efeff4;justify-content:center'>
+  <text style='color:#8a8a8a; font-size:24rpx'>登录即代表您已经同意并接受</text>
+  <text style='color:#d3a252; font-size:24rpx' bindtap='notice'>《365淘房用户服务协议》</text>
+</view>

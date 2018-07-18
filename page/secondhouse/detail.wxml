@@ -1,0 +1,96 @@
+<!--page/secondhouse/index.wxml-->
+
+<!-- 轮动图 -->
+<swiper class="swiperList" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{detaildata.pics}}">
+    <swiper-item class='swiper-item'>
+      <image src="{{item}}" class="slide-image" width="355" height="150" mode="scaleToFill"  bindtap="lbLargeImg"  data-picurl="{{item}}" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="headTitle">
+	<view class="mainTitle">
+		{{detaildata.title}}
+	</view>
+	<view class="select__tagList flex">
+		<view class="select__tag">{{detaildata.h_chara}}</view>
+	</view>
+</view>
+<!-- 学区 -->
+<view class="schoolArea" hidden="{{isxiaoxue=='false' ? true : false}}">
+	<view class="schoolArea__tag"><view class="schoolArea__tri"></view>小学学区</view>
+	<view class="schoolArea__txt">{{xiaoxue}}</view>
+</view>
+<view class="schoolArea" hidden="{{iszhongxue=='false' ? true : false}}">
+	<view class="schoolArea__tag"><view class="schoolArea__tri"></view>中学学区</view>
+	<view class="schoolArea__txt">{{zhongxue}}</view>
+</view>
+<view class="secondhouse__price">售价: <text class="price">{{detaildata.price}}万</text>（{{detaildata.averprice}}元/m²）</view>
+<view class="secondhouse__square flex">
+	<view class="secondhouse__squareL">面积: <text class='squareL'>{{detaildata.buildarea}}㎡</text></view>
+	<view class="secondhouse__squareR">户型: <text class="squareR">{{detaildata.apartment}}</text></view>
+</view>
+<!-- 房源详情 -->
+<view class="gray-div"></view>
+<view class="detail-tit bor-b base f24"><text>房源详情</text></view>
+<view class="base bd pb25">
+	<view class='house__detailList flex'>
+		<view class="house__detailListL">楼层: {{detaildata.story}}</view>
+		<view class="house__detailListR">类型: {{detaildata.infotype}}</view>
+	</view>
+	<view class='house__detailList flex'>
+		<view class="house__detailListL">朝向: {{detaildata.forward}}</view>
+		<view class="house__detailListR">装修: {{detaildata.fitment}}</view>
+	</view>
+	<view class='house__detailList flex'>
+		<view class="house__detailListL">权属: {{detaildata.mright}}</view>
+		<view class="house__detailListR">年代: {{detaildata.buildyear}}</view>
+	</view>
+</view>
+<view class="publicTime f28">发布时间：{{detaildata.creattime}} ({{detaildata.updatetimeNew}}更新)</view>
+<!-- 房源描述 -->
+<view class="gray-div"></view>
+	<view class="detail-tit bor-b base f24"><text>房源描述</text></view>
+	<view class="p25 base">
+	    <view class="dynamic mt30 {{islong ? 'textHide':''}}">
+			<text>{{detaildata.remarknew}}</text>
+		</view>
+	</view>
+	<view class="btn-down {{issecond?'up':''}}" hidden="{{up}}" bindtap="showAll"></view>
+<!-- 周边配套 -->
+<view class="gray-div"></view>
+<view class="detail-tit bor-b base f24"><text>周边配套</text></view>
+<view class="house-addr f28">小区地址：<text>{{detaildata.blockinfo.address}}</text></view>
+<map id="map" class="map mt30" longitude="{{longitude}}" latitude="{{latitude}}" scale="14"  bindcontroltap="controltap" bindtap="show_big_map" markers="{{markers}}" bindmarkertap="markertap"  bindregionchange="regionchange" show-location></map>
+<view class="p25 base">
+    <view class="dynamic lh60 {{islong2 ? 'textHide':''}}">
+    	<view><text>{{detaildata.blockinfo.b_other}}</text></view>
+    </view>
+</view> 
+<view class="btn-down {{issecond2?'up':''}}" hidden="{{up}}" bindtap="showAll2"></view>
+<!-- 猜你喜欢 -->
+<view class="gray-div"></view>
+<view class="tit bor-b p15-20"><icon class="icon-heart"></icon><text class="base f24 ml20">猜你喜欢</text></view>
+<import src="../template/secondhouse.wxml"/>
+<template is="secondhouse-detail"  data="{{list_arr}}" />
+<!-- 版权 -->
+<view class="f24" style="height:100rpx;margin-top:26rpx;background:#fff5df;line-height:100rpx;text-indent:24rpx">
+	网站提醒：请务必注意网络交易风险，交易前需先验证产权证明
+</view>
+<!-- 底部固定电话 -->
+<view class="tel-fixed" bindtap="makePhoneCall">
+    <!--<navigator url="tel:400-8181-365,10025">-->
+        <view class="flex tel-content j-center" bindtap="dial">
+            <view class="tel-detail">
+                <view class="f30 white">{{detaildata.brokerinfo.telno}}</view>
+                <view class="f22 tel-info">拨打电话以获取更多信息</view>
+            </view>
+            <view class="tel bg-orange t-c">
+                <icon class="icon-tel mt15"></icon>
+                <view class="f22 white">电话</view>
+            </view>
+        </view>
+    <!--</navigator>-->
+</view>
+<!-- 底部固定电话 -->

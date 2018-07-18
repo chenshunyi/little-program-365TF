@@ -1,0 +1,4 @@
+<view class="appBtn" hidden='{{!isShow}}'>
+    <button class='openBtn' open-type='launchApp' app-parameter="{{parameter}}" binderror="launchAppError"></button>
+    <slot></slot>
+</view>

@@ -1,0 +1,62 @@
+<view class='topContent'>
+  <!--特色描述  -->
+  <view class='featureTip'>
+    <view class='text icon'>提供专业、客观、真诚的买房卖房资讯服务</view>
+  </view>
+
+  <!--表单  -->
+  <form report-submit="true" bindsubmit="formSubmit">
+    <!-- 提问内容  -->
+    <view class='formGroup'>
+      <textarea class='contentInput' placeholder='请详细描述您的问题' placeholder-class='placeholder' maxlength='200' cursor-spacing='20px' bindinput="inputDetect" value='{{requestParam.question}}'></textarea>
+
+      <view class='flex'>
+        <view class='describe'>
+          <view class='payTip' hidden="{{payPrice<=0}}">需支付¥{{payPrice}}</view>
+          <view class='payDes'>知识商品，购买后不接受退款，请知悉。</view>
+        </view>
+        <view class='wordLengthDetect'>{{wordNum}}/200</view>
+      </view>
+    </view>
+
+    <!-- 上传图片  -->
+    <view class='picGroup'>
+      <view class='flex alignC picList'>
+        <block wx:for="{{uploadInfoList}}" wx:for-item="item" wx:for-index="idx">
+          <view class='picItem'>
+            <view class='flex alignC flexC uploadMask' wx:if="{{item.isLoading}}">
+              <view class='loading'>
+                <view class='circle'></view>
+                <view class='circle'></view>
+                <view class='circle'></view>
+                <view class='circle'></view>
+                <view class='circle'></view>
+                <view class='circle'></view>
+                <view class='circle'></view>
+                <view class='circle'></view>
+              </view>
+            </view>
+            <view class='flex alignC flexC uploadMask' wx:if="{{item.isLoadfail}}">
+              <view class='errorMsg'>上传失败</view>
+            </view>
+            <view class='picDel' data-index="{{idx}}" data-uploadtask="{{item.uploadTask}}" bindtap="deleteImage"></view>
+            <image class='pic' src="{{item.imgUrl}}" mode="aspectFill" data-src="{{item.imgUrl}}" bindtap="previewImage"></image>
+          </view>
+        </block>
+        <view class='btnUpload' bindtap="chooseImage" wx:if="{{uploadInfoList.length < imageTotalNum}}"></view>
+      </view>
+    </view>
+
+    <view class='flex' style='background:#efeff4; padding-top:54rpx; padding-left:55rpx'>
+      <text style='color:#8a8a8a; font-size:24rpx'>提问即代表您已同意并接受</text>
+      <text style='color:#d3a252; font-size:24rpx' bindtap='notice'>《365房博士咨询服务使用须知》</text>
+    </view>
+    <!-- 提交问题  -->
+    <view class='btnView'>
+      <button class='btnSubmit' hover-class='none' loading='{{btnSubmitLoading}}' formType="submit">提交</button>
+    </view>
+
+    <view class='flex' style='background:#efeff4; padding-top:85rpx; justify-content:center; color:#8a8a8a; font-size:24rpx'>去365淘房App，赚积分免费提问</view>
+
+  </form>
+</view>

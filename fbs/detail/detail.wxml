@@ -1,0 +1,93 @@
+<view class='container'>
+  <!--//1 待解决 2 已解决 3 隐藏 4 待支付  -->
+  <block wx:if="{{detail.question}}">
+
+    <!-- 问题内容 -->
+    <view class="questionView">
+      <text class="questionText">{{detail.question}}</text>
+      <block wx:if="{{detail.pic}}">
+        <view class='questionImageContent'>
+          <block wx:for="{{picArr}}" wx:for-item="imageItem" wx:key="imageItem" wx:for-index="idx">
+            <image class='questionImage' bindtap="picTap" mode="aspectFill" src="{{imageItem}}" data-picurl="{{imageItem}}">
+            </image>
+          </block>
+        </view>
+      </block>
+      <text class='questionTime'>{{detail.dateStr}} </text>
+    </view>
+
+
+    <!--回答视图 -->
+    <view wx:if="{{detail.answer.length}}" class="fbsAnswerView">
+      <view class="fbsInfoView">
+        <view>
+          <image class="fbsPhotoImage" bindtap="fbsDetailInfo" src="{{detail.fbsInfo.avatar}}" mode="aspectFill"></image>
+          <view class="fbsNameView" bindtap="fbsDetailInfo">{{detail.fbsInfo.name}} </view>
+        </view>
+
+        <block wx:if="{{detail.support==1}}">
+          <view class='otherDZ' catchtap='actionToDZ' data-id="{{detail.id}}" data-enable='0' data-index='{{idx}}'>
+            <image class='otherDZ_image' mode='aspectFit' src='/fbs/image/fbs_zan_selected.png'></image>
+            <text class='otherDZ_Number_HasDZ'>{{detail.vote}}</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view class='otherDZ' catchtap='actionToDZ' data-id="{{detail.id}}" data-enable='1' data-index='{{idx}}'>
+            <image class='otherDZ_image' mode='aspectFit' src='/fbs/image/fbs_zan_nomal.png'></image>
+            <text class='otherDZ_Number'>{{detail.vote}}</text>
+          </view>
+        </block>
+      </view>
+      <text class="fbsAnswerText">{{detail.answer}}</text>
+      <text class="questionTime">{{detail.replydateStr}}</text>
+    </view>
+    <view wx:else class='noAnswearView'>暂未回答，请耐心等待</view>
+
+    <!--追问问题  -->
+    <view wx:if="{{detail.zwquestion.length}}" class="fbsZWquestionView">
+      <view class="lineView"></view>
+      <view class="zwIconView">追问</view>
+      <text class="fbsZWQuestiontext">{{detail.zwquestion}}</text>
+      <block wx:if="{{detail.zwpic}}">
+        <view class='questionImageContent'>
+          <block wx:for="{{zwPicArr}}" wx:for-item="imageItem" wx:for-index="idx" wx:key="imageItem">
+            <image class='questionImage' bindtap="zwPicTap" mode="aspectFill" src="{{imageItem}}" data-picurl="{{imageItem}}">
+            </image>
+          </block>
+        </view>
+      </block>
+      <text class="questionTime">{{detail.zwdateStr}}</text>
+      <view class="zwAnswerIconView">回答</view>
+
+
+      <!--追问回答  -->
+      <block wx:if="{{detail.zwanswer}}">
+        <text class="zwAnswerView">{{detail.zwanswer}}</text>
+        <text class="questionTime">{{detail.zwreplydateStr}}</text>
+      </block>
+      <block wx:else>
+        <view class='zwNoAnswearView'>暂未回答，请耐心等待</view>
+      </block>
+
+    </view>
+
+
+    <!-- 提问按钮，只有已解答且房博士在线时才出现 -->
+    <block wx:if="{{detail.fbsInfo.isonline==1}}">
+      <block wx:if="{{detail.status==2 && detail.ismy==true}}">
+        <block wx:if="{{detail.zwquestion}}">
+          <button class='askButton' bindtap='askTapped'>{{'继续向TA提问('+(detail.fbsInfo.total_fee=='' || detail.fbsInfo.total_fee==0?'免费':('￥'+detail.fbsInfo.total_fee))+')'}}</button>
+        </block>
+        <block wx:else>
+          <button class='askButton' bindtap='zwTapped'>免费追问</button>
+        </block>
+      </block>
+      <block wx:elif="{{detail.ismy==false}}">
+        <button class='askButton' bindtap='askTapped'>{{'向TA提问('+(detail.fbsInfo.total_fee=='' || detail.fbsInfo.total_fee==0?'免费':('￥'+detail.fbsInfo.total_fee))+')'}}</button>
+      </block>
+    </block>
+
+  </block>
+</view>
+
+<app-btn parameter="{{appParameter}}"></app-btn>

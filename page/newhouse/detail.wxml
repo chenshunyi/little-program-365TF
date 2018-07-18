@@ -1,0 +1,125 @@
+
+<swiper class="swiperList" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{detail.project_picture}}">
+    <swiper-item class='swiper-item'>
+      <image src="{{item.pic_address}}" mode="scaleToFill" class="slide-image" bindtap="lbLargeImg" data-picurl="{{item.pic_address}}" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 楼盘信息 -->
+<view class="p25 base">
+  <view class="flex j-center pb30 bor-b">
+    <view>
+      <view class="f36 bold">{{detail.h_name}}</view>
+      <view class="f28 gray mt20">{{detail.h_channel}}</view>
+    </view>
+    <view class="t-r">
+      <view class="f28 bold orange mt10">
+        <text class="f36">{{detail.h_price}}</text>
+      </view>
+      <view class="f24 avg-price mt25">参考均价</view>
+    </view>
+  </view>
+  <view class="dynamic mt30">
+    <icon class="icon-time mr20"></icon>{{detail.h_saledate}}</view>
+  <view class="dynamic mt30">
+    <icon class="icon-address mr20"></icon>{{detail.h_project_address}}</view>
+</view>
+
+<!-- 楼盘动态 -->
+<block wx:if="{{detail.h_news.length}}">
+  <view class="gray-div"></view>
+  <view class="detail-tit bor-b base f24">
+    <text>楼盘动态</text>
+  </view>
+  <block wx:for="{{detail.h_news}}">
+    <view class="p25 base">
+      <view class="f28 gray mt30">{{item.addtime}}</view>
+      <view class="dynamic mt30">{{item.summary}}</view>
+    </view>
+  </block>
+</block>
+
+<!-- 户型图 -->
+<block wx:if="{{a_photos.length}}">
+  <view class="gray-div"></view>
+  <view class="detail-tit bor-b base f24">
+    <text>户型图</text>
+  </view>
+  <scroll-view class="house-type" scroll-x="true">
+    <block wx:for="{{a_photos}}">
+      <view class="a-type" bindtap="hxLargeImg" data-picurl="{{item.p_url}}">
+        <image class="type-img" src="{{item.p_url}}" mode="aspectFill"></image>
+        <view class="flex j-center base f24 mt10">
+          <view>{{item.p_layout}}</view>
+          <view>{{item.p_area}}</view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</block>
+
+<!-- 价格走势 -->
+<block wx:if="{{unit}}">
+<view class="gray-div"></view>
+<view class="detail-tit bor-b base f24" >
+  <text>价格走势</text>
+</view>
+<view style="position:relative;padding-top:30rpx" >
+  <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" style='width:100%;height:200px'></canvas>
+</view>
+</block>
+
+<!-- 具体地址 -->
+<view class="gray-div"></view>
+<view class="detail-tit bor-b base f24">
+  <text>具体地址</text>
+</view>
+<!-- 地图 -->
+<block wx:if="{{detail.h_long_t}}">
+<view class="p25 base">
+  <view class="f28">{{detail.h_project_address}}</view>
+  <map id="map" class="map mt30" longitude="{{detail.h_long_t}}" latitude="{{detail.h_lat_t}}" scale="14" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" show-location bindtap="show_big_map"></map>
+</view>
+</block>
+
+<!-- 详细信息 -->
+<view class="gray-div"></view>
+<view class="detail-tit bor-b base f24">
+  <text>详细信息</text>
+</view>
+<view class="p25 base">
+  <view class="f28">开盘时间：{{detail.h_saledate}}</view>
+  <view class="f28 mt30">交付时间：{{detail.h_deli_date}}</view>
+  <view class="f28 mt30">物业类型：{{detail.h_channel}}</view>
+  <view class="f28 mt30">建筑类别：{{detail.h_build_type}}</view>
+  <view class="f28 mt30">装修情况：{{detail.h_deli_standard}}</view>
+</view>
+
+<!-- 猜你喜欢 -->
+<view class="gray-div"></view>
+<view class="tit bor-b p15-20" wx:if="{{houseitems}}">
+  <icon class="icon-heart"></icon>
+  <text class="base f24 ml20">猜你喜欢</text>
+</view>
+<import src="../template/newhouse.wxml" />
+<template is="newhouse-list" data="{{houseitems}}" />
+
+<!-- 底部固定电话 -->
+<view class="tel-fixed">
+
+  <!--<navigator url="tel:400-8181-365,10025">-->
+  <view class="flex tel-content j-center" bindtap="dial" data-tel="{{detail.h_tel}}">
+    <view class="tel-detail">
+      <view class="f30 white">{{detail.h_tel}}</view>
+      <view class="f22 tel-info">拨打电话以获取更多信息</view>
+    </view>
+    <view class="tel bg-orange t-c">
+      <icon class="icon-tel mt15"></icon>
+      <view class="f22 white">电话</view>
+    </view>
+  </view>
+
+  <!--</navigator>-->
+</view>

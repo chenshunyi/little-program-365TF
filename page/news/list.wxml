@@ -1,0 +1,23 @@
+<view class="flex nav t-c">
+  <block  wx:for="{{navbar}}" wx:for-index="idx">
+    <view class="flex-1 {{idx==0 ? 'bdr-r' : ''}} {{list_type==idx ? 'active' : ''}}" data-idx="{{idx}}" bindtap="switchNav">
+      <text>{{item}}</text>
+    </view>
+  </block>
+</view>
+
+<view class="list-box">
+    <import src="../template/news.wxml"/>
+
+    <view hidden="{{list_type==0 ? false : true}}">
+      <scroll-view scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="getMore" lower-threshold="50"  >
+        <template is="news-list" data="{{...rmzx}}" />
+      </scroll-view>
+    </view>
+
+    <view hidden="{{list_type==1 ? false : true}}">
+      <scroll-view scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="getMore" lower-threshold="50">
+        <template is="news-list" data="{{...lpdg}}" />
+      </scroll-view>
+    </view>
+</view>

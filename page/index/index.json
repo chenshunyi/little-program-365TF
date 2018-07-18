@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "365淘房",
+    "disableScroll": true,
+    "usingComponents": {
+      "app-btn": "/component/toAppBtn"
+    }
+}

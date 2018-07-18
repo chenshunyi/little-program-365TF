@@ -1,0 +1,54 @@
+<view class="flex search-btn bg-orange">
+  <navigator class="city-choose white v-m f28 mr20" url="/page/index/city" open-type="navigate">{{city.cname}}<icon class="icon-down ml10"></icon></navigator>
+  <navigator class="a-search white f28" url="/page/search/index?type=newhouse" open-type="navigate">
+    <icon class="icon-search" type="search" size="17" color="#fff"></icon>好房就要淘！
+  </navigator>
+</view>
+<scroll-view scroll-y="true" style="height:{{scrollHeight}}px" lower-threshold="50" bindscrolltolower="scrolltolower">
+  <view class="flex nav t-c p25">
+    <navigator url="/page/newhouse/list" class="flex-1" open-type="navigate" hidden="{{icon_arr.icon1}}">
+      <image src="/image/icon_mxf.png"></image>
+      <view class="f24 mt15 base">新房</view>
+    </navigator>
+    <navigator url="/page/secondhouse/list" class="flex-1" open-type="navigate" hidden="{{icon_arr.icon2}}">
+      <image src="/image/icon_esf.png"></image>
+      <view class="f24 mt15 base">二手房</view>
+    </navigator>
+    <navigator url="/page/news/list" class="flex-1" open-type="navigate" hidden="{{icon_arr.icon21}}">
+      <image src="/image/icon_zixun.png"></image>
+      <view class="f24 mt15 base">资讯</view>
+    </navigator>
+    <navigator url="/page/checkprices/index" class="flex-1" open-type="navigate" hidden="{{icon_arr.icon300}}">
+      <image src="/image/icon_cfj.png"></image>
+      <view class="f24 mt15 base">查房价</view>
+    </navigator>
+		<navigator url="/page/houseteam/list" class="flex-1" open-type="navigate" hidden="{{icon_arr.icon6}}">
+      <image src="/image/icon_kft.png"></image>
+      <view class="f24 mt15 base">看房团</view>
+    </navigator>
+
+    <navigator url="/fbs/home/home" class="flex-1" open-type="navigate" hidden="{{icon_arr.icon400}}">
+      <image src="/image/icon_fbs.png"></image>
+      <view class="f24 mt15 base">房博士</view>
+    </navigator>
+  </view>
+
+  <view class="gray-div"></view>
+  <view class="tit bor-b p15-20"><icon class="icon-heart"></icon><text class="base f24 ml20">猜你喜欢</text></view>
+  <import src="../template/index.wxml"/>
+  <template is="index-list" data="{{list_arr}}"/>
+
+	<view class="nodata" hidden="{{isnodata ==false ? true : false}}">
+    <view>
+    <image mode="widthFix" src="https://m.house365.com/Public_new/images/tfxcx/img_404@2x.png" ></image>
+    </view>
+    <text>这里空空如也</text>
+  </view>
+
+
+
+  <view class="list-load" hidden="{{!isajax}}"></view>
+  <view class="no-more f24" hidden="{{is_more}}">没有更多了 ！</view>
+</scroll-view>
+<app-btn></app-btn>
+

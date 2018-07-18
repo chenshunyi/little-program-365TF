@@ -1,0 +1,14 @@
+<!--page/checkprices/area.wxml-->
+<view class="searchbg">
+    <view class="{{className}}">
+        <icon class="iconsearch" size="16" type="search"></icon>
+        <input class="blur-input" type="text" bindinput="textinput" placeholder-class="" value="{{keywords}}" />
+    </view>
+    <text wx:if="{{clearInput}}" class="searchclear" bindtap="clearinput">取消</text>
+</view>
+<scroll-view class="seachpirce-items">
+    <block wx:for="{{listitems}}">
+        <text class="itemInf" bindtap="selectblock" data-id="{{item.id}}" data-blockname="{{item.blockname}}">{{item.blockname}}</text>
+    </block>
+</scroll-view>
+<view class="clearrecord" bindtap="clearup" wx:if="{{is_history}}">清除历史记录</view>

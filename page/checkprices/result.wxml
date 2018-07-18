@@ -1,0 +1,53 @@
+<!--page/checkprices/result.wxml-->
+<view class="searchresult">
+    <view class="houseinf">
+        <view class="houseshu"></view>
+        <text class="houseinf_name">{{blockname}}</text>
+        <text class="hosueinf_size">{{area}}m²</text>
+    </view>
+    <view>
+        <view class="totalprice">
+            <text class="money">房屋总价（万元）</text>
+            <text class="moneyNum">{{listitems.result.price}}</text>
+        </view>
+        <view class="danjia">
+            <text class="money">单价（元）</text>
+            <text class="moneyNum">{{listitems.result.averprice}}</text>
+        </view>
+    </view>
+</view>
+<view class="gray-div clearf"></view>
+<view>
+    <text class="pricetrend">小区房价走势</text>
+    <view>
+        <view class="totalprice">
+            <text class="money">小区均价</text>
+            <view class="averageprice">
+                {{listitems.xglist.currentprice}}
+                <text class="square">元/㎡</text>
+            </view>
+        </view>
+        <view class="danjia">
+            <text class="money">环比上月</text>
+            <text class="{{hbclass}}">{{listitems.xglist.currentHB}}</text>
+        </view>
+    </view>
+    <!--曲线图-->
+    <view class="trendchart">
+        <view style="position:relative">
+            <scroll-view scroll-x="true">
+                <canvas style="width: 320px; height: 200px;" canvas-id="firstCanvas" id="firstCanvas"></canvas>
+            </scroll-view>
+            <canvas style="width: 45px; height: 200px;position:absolute;top:0;right:0" canvas-id="secondCanvas" id="secondCanvas"></canvas>
+        </view>        
+    </view>
+</view>
+
+<view class="gray-div clearf" wx:if="{{listitems.xglist.sellList.length > 0}}"></view>
+<view wx:if="{{listitems.xglist.sellList.length > 0}}">
+    <text class="pricetrend secondtj">小区二手房</text>
+        <import src="../template/checkprices.wxml"/>
+        <block wx:for="{{listitems.xglist.sellList}}">
+            <template is="secondhouse-list" data="{{...item}}"/>
+        </block>
+</view>

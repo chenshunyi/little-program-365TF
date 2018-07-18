@@ -1,0 +1,96 @@
+.searchbg {
+  width: 100%;
+  background: #f2f2f2;
+  padding: 15rpx 0;
+  float: left;
+}
+
+.searchprice_list {
+  width: 94%;
+  float: left;
+  margin: 0 3%;
+  background: #fff;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  position: relative;
+  left: 0;
+  height: 80rpx;
+  border: 1rpx solid #f2f2f4;
+}
+
+.searchprice_list.resetWidth {
+  width: 83%;
+}
+
+.iconsearch {
+  position: absolute;
+  left: 10rpx;
+  top: 24rpx;
+  z-index: 22;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.blur-input {
+  width: 92%;
+  float: left;
+  padding-left: 8%;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  height: 80rpx;
+  color: #4d4d4d;
+  font-weight: 400;
+}
+
+.searchclear {
+  color: #4d4d4d;
+  position: absolute;
+  right: 30rpx;
+  top: 40rpx;
+  z-index: 22;
+  font-size: 28rpx;
+}
+
+.seachpirce-items {
+  width: 100%;
+  float: left;
+  height: 648rpx;
+}
+
+.itemInf {
+  width: 94%;
+  margin: 0 3%;
+  height: 80rpx;
+  line-height: 80rpx;
+  float: left;
+  display: block;
+  border-bottom: 0.5rpx solid #d9d9d9;
+  font-size: 28rpx;
+  color: #666;
+  text-indent: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clearrecord {
+  width: 93%;
+  height: 80rpx;
+  float: left;
+  margin-top: 40rpx;
+  background: #ff7500;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 35rpx;
+  margin-left: 3%;
+  position: fixed;
+  left: 0;
+  bottom: 130rpx;
+}
+
+.showshowcolor {
+  color: #999;
+}

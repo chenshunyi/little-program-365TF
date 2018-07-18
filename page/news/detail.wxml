@@ -1,0 +1,32 @@
+<!--page/news/detail.wxml-->
+<view class="container p25">
+
+  <view class="n-hd pt25 pb25">
+    <text class="n-title f32">{{n_title}}</text>
+    <view class="flex extra f26">
+       <view class="flex-1">来源：{{n_from ? n_from : '365淘房'}}</view>
+       <view class="flex-1 t-r">{{datetime}}</view>
+    </view>
+  </view>
+
+  <view class="n-content pt25 pb25">
+    <!--audio box-->
+    <view class="t-c mt20" hidden="{{video.src ? false : true}}">
+        <video src="{{video.src}}" objectFit="fill"></video>
+    </view>
+
+    <!--video box-->
+    <view class="t-c mt20" hidden="{{audio.current.src ? false : true}}">
+       <audio src="{{audio.current.src}}" poster="{{audio.current.poster}}" name="{{audio.current.name}}" author="{{audio.current.author}}" action="{{audio.audioAction}}" controls></audio>
+     </view>
+
+  <block wx:for="{{n_content}}">
+
+    <text class="f28" wx:if="{{item.type==0}}">{{item.content}}</text>
+
+     <image class="img mt20" mode="widthFix" wx:if="{{item.type==1}}" src="{{item.url}}" bindtap="viewimg" data-currenturl="{{item.url}}"></image>
+
+  </block>
+  
+  </view>
+</view>

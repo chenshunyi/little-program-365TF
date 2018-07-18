@@ -1,0 +1,15 @@
+<form bindsubmit="formSubmit">
+<navigator url="area" open-type="navigate">
+    <view class="searchprice_con">
+        <text class="searchprices_name">小区名称</text>        
+        <text class="searchprices_select">{{blockname}}</text>
+        <image class="searchprices_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAcCAYAAABoMT8aAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpkOTBiOTQxNy1iMDc5LTRjNDUtYjMwOC0wMTkzMTE1OWMyYTkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjgzREVCNTdENkZDMTFFNjk2RURCNjBCRERBMjJGN0UiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjgzREVCNTZENkZDMTFFNjk2RURCNjBCRERBMjJGN0UiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Y2NhNzJhN2UtMDM2OC0xYzRkLTg3NDItNTgzN2UzYzk5ZDk2IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6N2MyODBmMWYtZDZkZS0xMWU2LWFiZWEtOWViYmQzYmEzMDZhIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+bApMbgAAAYNJREFUeNqklcsrRVEUxu85IUlJiUSeJRShDEQeiTAwMjJQSjIx5Y8wNzQxUQZXipS8Rk55JEVSuNRNN7phpMTxrVqndqvbXrvOV7/u7eus7+znOl4Yhok4yguCi+j/HOgB8+DXOYB/F8Aq8EAhmHEN8cGiUUyaBhugwDWg2iiONAU2XUIoYBksAbmakyDJU7IGkFZ4EeW8J8A2KNICSGs89G/xzAjYBcVaAGkLjIMv4Q+APVCiBZCOwRDICL8X7INSLYB0CfpBSvjd4ACUaQGke9AHboTfySHlWgApzSMJhN/OU630HQ5bFsyCH+G3gHWXgFqwA/KF/0wXTwuo56E2CP8JDIJHW0AjF9cJ/4GLU7ZFbAInoCbHztCherFtYzO/uUr4d/zmtO0gtUbbI/xbLn61HeU2cAQqxDPXXJyxXaYOcBidLkNXYBi82a5zlzzfxn2g4netofzlaGlnXJx1aWk0zFHwyd4pN5EP16ZKOudGQp1nzAhT5cX9MvmJmPoXYACAj07j2Xv/GQAAAABJRU5ErkJggg=="></image>
+    </view>
+</navigator>
+<view class="searchprice_con">
+    <text class="searchprices_name">面积</text>
+    <view class="searchprices_select"><input class="searchprices_size" type="digit" name="area" placeholder-class="placeholder-class" placeholder="请输入面积" maxlength="6" /></view>
+    <text class="searchprices_unit">m²</text>
+</view>
+<button class="searchpriceBtn marginTop" formType="submit">快速评估</button>
+</form>
